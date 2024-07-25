@@ -59,6 +59,7 @@
 
 
 
+
 GitHub: Let’s build from here · GitHub
 
 
@@ -127,10 +128,9 @@ Skip to content
 
 
 
+Explore the latest in AI, DevEx, security:
 
-Get your boss on board for GitHub Universe! Tickets are 35% off for a limited time.
-
-    Use our quick email template today.
+    Get 20% off your tickets to GitHub Universe, only until September 3.
 
 
 
@@ -154,17 +154,17 @@ Toggle navigation
 
 
 
-
-          Sign in
-        
-
-
  
 
 
 
 
 
+
+
+
+            Sign in
+          
 
 
 
@@ -227,7 +227,7 @@ Codespaces
 
 
 
-Copilot
+GitHub Copilot
         Write better code with AI
       
 
@@ -309,7 +309,7 @@ Explore
 
 
 
-For
+By size
 
 
 
@@ -331,16 +331,31 @@ For
 
 
 
-      Education
+
+By industry
+
+
+
+      Healthcare
+
+    
+
+
+
+      Financial services
+
+    
+
+
+
+      Manufacturing
 
     
 
 
 
 
-
-
-By Solution
+By use case
 
 
 
@@ -365,7 +380,56 @@ By Solution
 
 
 
-Resources
+
+        Resources
+        
+
+
+
+
+
+Topics
+
+
+
+      AI
+
+    
+
+
+
+      DevOps
+
+    
+
+
+
+      Innersource
+
+    
+
+
+
+      Open Source
+
+    
+
+
+
+      Security
+
+    
+
+
+
+      Software Development
+
+    
+
+
+
+
+Explore
 
 
 
@@ -457,6 +521,65 @@ Repositories
 
 
 
+
+        Enterprise
+        
+
+
+
+
+
+
+
+
+
+
+
+
+Enterprise platform
+        AI-powered developer platform
+      
+
+
+
+
+Available add-ons
+
+
+
+
+
+
+
+Advanced Security
+        Enterprise-grade security features
+      
+
+
+
+
+
+
+
+GitHub Copilot
+        Enterprise-grade AI features
+      
+
+
+
+
+
+
+
+Premium Support
+        Enterprise-grade 24/7 support
+      
+
+
+
+
+
+
 Pricing
 
 
@@ -502,6 +625,7 @@ Search code, repositories, users, issues, pull requests...
 
 Clear
  
+
 
 
 
@@ -649,12 +773,12 @@ Query
 
 
 
-              Sign in
-            
+                Sign in
+              
 
 
-              Sign up
-            
+                Sign up
+              
 
 
 
@@ -894,10 +1018,9 @@ GitHub Codespaces offers a complete dev environment in seconds. Code, build, tes
 
 
 
-GitHub Mobile and Copilot now let you manage projects and converse with your AI pair programmer on the go.
+GitHub Mobile and Copilot now let you manage projects and converse with your AI pair programmer on the go.
  
     Download GitHub Mobile 
-
 
 
 
@@ -1207,7 +1330,35 @@ GitHub Sponsors lets you support your favorite open source maintainers and proje
 
 
 
-kazuya kawaguchi
+Nick DeJesus
+ 
+
+
+
+
+
+Sponsor
+
+
+ 
+
+
+
+sindresorhus
+ 
+
+
+
+
+
+Sponsor
+
+
+ 
+
+
+
+Evan You
  
 
 
@@ -1235,63 +1386,7 @@ Sponsor
 
 
 
-chaynHQ
- 
-
-
-
-
-
-Sponsor
-
-
- 
-
-
-
-CommandPost
- 
-
-
-
-
-
-Sponsor
-
-
- 
-
-
-
-Nikema
- 
-
-
-
-
-
-Sponsor
-
-
- 
-
-
-
-ESLint
- 
-
-
-
-
-
-Sponsor
-
-
- 
-
-
-
-Directus
+Samuel
  
 
 
@@ -1319,7 +1414,35 @@ Sponsor
 
 
 
-Nick DeJesus
+kazuya kawaguchi
+ 
+
+
+
+
+
+Sponsor
+
+
+ 
+
+
+
+ESLint
+ 
+
+
+
+
+
+Sponsor
+
+
+ 
+
+
+
+chaynHQ
  
 
 
@@ -1413,6 +1536,14 @@ Email address
 
 
 
+Pause
+Play
+
+
+
+
+
+
 1 This 7X times factor is based on data from the industry’s longest running analysis of fix rates
 Veracode State of Software Security 2023, which cites the average time to fix 50% of flaws as 198 days vs. GitHub’s fix rates of 72% of flaws with in 28 days which is at a minimum of 7X faster when compared.
 2 The Total Economic Impact™ Of GitHub Enterprise Cloud and Advanced Security, a commissioned study conducted by Forrester Consulting, 2022. Results are for a composite organization based on interviewed customers.
@@ -1485,10 +1616,19 @@ Developer API
 Partners
 
 
+Education
+
+
 Electron
 
 
+GitHub CLI
+
+
 GitHub Desktop
+
+
+GitHub Mobile
 
 
 

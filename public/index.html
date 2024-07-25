@@ -10,13 +10,47 @@
     <p>Enter a domain name below to analyze it:</p>
     <form id="domainForm">
         <label for="domainInput">Enter Domain:</label>
-        <input type="text" id="domainInput" name="domainInput">
+        <input type="text" id="domainInput" name="domainInput" required>
         <button type="submit">Analyze</button>
     </form>
     <div id="output"></div>
+    <div id="status">Status: Waiting for input...</div>
+
     <!-- Include Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="bundle.js"></script>
+    <script>
+        const form = document.getElementById('domainForm');
+        const outputDiv = document.getElementById('output');
+        const statusDiv = document.getElementById('status');
 
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const domain = document.getElementById('domainInput').value;
+            outputDiv.innerHTML = '';
+            statusDiv.textContent = 'Status: Analyzing...';
+
+            try {
+                const response = await axios.post('/api/analyzeDomain', { domain });
+                const result = response.data;
+
+                if (response.status === 200) {
+                    outputDiv.innerHTML = `Report generated successfully. <a href="${result.pdfFileName}" download>Download PDF</a>`;
+                    statusDiv.textContent = 'Status: Analyzed';
+                } else {
+                    statusDiv.textContent = 'Status: Error generating report.';
+                }
+            } catch (error) {
+                statusDiv.textContent = 'Status: Error generating report.';
+                console.error('Error:', error);
+            }
+        });
+
+        // Handle SSE
+        const eventSource = new EventSource('/events');
+        eventSource.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            statusDiv.textContent = 'Status: ' + data.status;
+        };
+    </script>
 </body>
 </html>

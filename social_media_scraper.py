@@ -13,7 +13,11 @@ def fetch_social_media_data(domain):
     try:
         response = requests.get(api_url, params=params)
         response.raise_for_status()
-        brand_summary = response.json()
+        try:
+            brand_summary = response.json()
+        except json.JSONDecodeError:
+            print(f"Error: Received invalid JSON response: {response.text}")
+            return {}
 
         social_media_details = {
             'facebook': {
