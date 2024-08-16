@@ -24,26 +24,44 @@
         const statusDiv = document.getElementById('status');
 
         form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const domain = document.getElementById('domainInput').value;
-            outputDiv.innerHTML = '';
-            statusDiv.textContent = 'Status: Analyzing...';
+    event.preventDefault();
+    const domain = document.getElementById('domainInput').value;
+    outputDiv.innerHTML = '';
+    statusDiv.textContent = 'Status: Analyzing...';
 
-            try {
-                const response = await axios.post('/api/analyzeDomain', { domain });
-                const result = response.data;
+    try {
+        const response = await axios.post('/api/analyzeDomain', { domain }, { responseType: 'blob' });
 
-                if (response.status === 200) {
-                    outputDiv.innerHTML = `Report generated successfully. <a href="${result.pdfFileName}" download>Download PDF</a>`;
-                    statusDiv.textContent = 'Status: Analyzed';
-                } else {
-                    statusDiv.textContent = 'Status: Error generating report.';
-                }
-            } catch (error) {
-                statusDiv.textContent = 'Status: Error generating report.';
-                console.error('Error:', error);
+        if (response.status === 200) {
+            const contentDisposition = response.headers['content-disposition'];
+            let filename = 'report.pdf'; // Default name
+
+            if (contentDisposition && contentDisposition.indexOf('filename=') !== -1) {
+                filename = contentDisposition
+                    .split('filename=')[1]
+                    .replace(/['"]/g, '');
             }
-        });
+
+            const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.setAttribute('download', filename);
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            outputDiv.innerHTML = `<b>Report generated successfully and downloaded!!</b>`;
+            statusDiv.textContent = 'Status: Analyzed';
+        } else {
+            statusDiv.textContent = 'Status: Error generating report.';
+        }
+    } catch (error) {
+        statusDiv.textContent = 'Status: Error generating report.';
+        console.error('Error:', error);
+    }
+});
+
+
 
         // Handle SSE
         const eventSource = new EventSource('/events');

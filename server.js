@@ -17,9 +17,16 @@ app.use(express.json());
 
 let clients = [];
 
+// Ensure the reports directory exists
+const ensureReportsDirExists = () => {
+    const reportsDir = path.join(__dirname, 'reports');
+    if (!fs.existsSync(reportsDir)) {
+        fs.mkdirSync(reportsDir);
+    }
+};
+
 // Function to take screenshot using Python script
 const takeScreenshot = (domain) => {
-    // Ensure the URL includes the protocol
     const url = domain.startsWith('http') ? domain : `https://${domain}`;
     const screenshotPath = path.join(__dirname, `screenshot_${domain}.png`);
 
@@ -103,15 +110,17 @@ app.get('/events', (req, res) => {
 
 // API endpoint to analyze domain
 app.post('/api/analyzeDomain', async (req, res) => {
-    const domain = req.body.domain;
+    const { domain } = req.body;
+    ensureReportsDirExists(); // Ensure the reports directory exists
+    const pdfFilePath = path.join(__dirname, 'reports', `${domain}.pdf`);
+    const pdfFileName = `${domain}_report.pdf`;
 
     try {
         sendEventToClients({ status: 'Analyzing...' });
 
-        const pdfFileName = `${domain}_report.pdf`;
-        const pdfFilePath = path.join(__dirname, pdfFileName);
         const pdfDoc = new PDFDocument();
-        pdfDoc.pipe(fs.createWriteStream(pdfFilePath));
+        const pdfStream = fs.createWriteStream(pdfFilePath);
+        pdfDoc.pipe(pdfStream);
 
         // Include backlinks data in the PDF
         pdfDoc.text('Backlinks Data:');
@@ -174,14 +183,27 @@ app.post('/api/analyzeDomain', async (req, res) => {
 
         pdfDoc.end();
 
-        sendEventToClients({ status: 'Analyzed' });
+        // Listen for the 'finish' event on the PDF stream to ensure the PDF is fully generated
+        pdfStream.on('finish', () => {
+            sendEventToClients({ status: 'Analyzed' });
 
-        res.json({ message: 'Report generated successfully.', pdfFileName });
+            // Send the PDF file to the client with the correct headers
+            console.log('Sending file:', pdfFileName);
+            res.setHeader('Content-Disposition', `attachment; filename="${pdfFileName}"`);
+            res.download(pdfFilePath, pdfFileName, (err) => {
+                if (err) {
+                    console.error('Error sending the file:', err);
+                    return res.status(500).json({ error: 'Error sending the PDF file.' });
+                }
+            });
+            
+        });
+
     } catch (error) {
         console.error('Error generating report:', error);
         sendEventToClients({ status: 'Error' });
         res.status(500).json({ error: 'Error generating report.' });
-    }
+    }   
 });
 
 // Listen for requests
