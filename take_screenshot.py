@@ -6,6 +6,11 @@ def take_screenshot(url, screenshot_path):
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page()
+
+        # Set extended timeout for navigation and page interactions
+        page.set_default_navigation_timeout(60000)  # 60 seconds
+        page.set_default_timeout(60000)  # 60 seconds
+
         try:
             parsed_url = urlparse(url)
             domain = parsed_url.netloc
