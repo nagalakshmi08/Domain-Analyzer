@@ -1,0 +1,376 @@
+/* CSS for Domain Analyzer */
+body{
+    margin: 0;
+}
+/* General Styling */
+.formm {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+h1 span {
+    color: #6a5acd; /* Slate blue for "Selector" */
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: none;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+    border-color: #6a5acd;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: black;
+    background-color: #6a5acd;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #5848b6; /* Darker slate blue */
+}
+
+/* Note Styling */
+.note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.note span {
+    font-weight: bold;
+}
+
+/* Output and Status */
+#output {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+#status {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #888;
+}
+/* Input Group Styling */
+.input-group {
+    display: flex;
+    border: 2px solid black; /* Black border around the group */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensure elements are bundled together */
+}
+
+.input-group input[type="text"] {
+    flex: 1; /* Make the input take the available space */
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none; /* Remove default border */
+    outline: none; /* Remove focus outline */
+}
+
+.input-group button {
+    background-color: #6a5acd; /* Slate blue */
+    color: white;
+    border: none; /* Remove default border */
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-group button:hover {
+    background-color: #5848b6; /* Darker slate blue on hover */
+}
+
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #e6e6fa; /* Light purple */
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #6a5acd; /* Slate blue */
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px dashed black;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+}
+
+button.signup:hover {
+    background-color: #6a5acd; /* Slate blue */
+    color: white;
+}
+
+button.login:hover {
+    background-color: #4b0082; /* Indigo */
+    color: white;
+}
+
+
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #e6e6fa; /* Light purple */
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #6a5acd; /* Slate blue */
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid black;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+}
+
+.login{
+    background-color: white;
+    color: black;
+}
+
+button.signup:hover {
+    background-color: #6a5acd; /* Slate blue */
+    color: white;
+}
+
+button.login:hover {
+    background-color: #4b0082; /* Indigo */
+    color: white;
+}
+
+.right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+  
+  .footer {
+    background-color: #6C74CB; /* Purple background */
+    color: white;
+    padding: 2rem 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+  
+  .footer-section {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-section {
+      text-align: left;
+      margin-bottom: 0;
+    }
+  }
+  
+  .logo-section {
+    margin-left: 25px;
+    flex: 1;
+  }
+  
+  .logo-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-info {
+    font-size: 1rem;
+  }
+  
+  .links-section {
+    flex: 1;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-link {
+    display: block;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+  
+  .globe-section {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .globe-section {
+      display: block;
+      margin-left: auto;
+    }
+  }
+  
+  .globe-image {
+    margin-left: auto;
+    max-width: 250px;
+  }
+
+  p{ color: white;}
+  
+  .links-section{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .logo-section{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+.copyright{
+    text-align: center;
+}
+  .footer-text{
+    margin: 3px;
+    color: black;
+    font-size: small;
+  }

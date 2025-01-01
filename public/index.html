@@ -3,18 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Domain Analyzer</title>
 </head>
 <body>
-    <h1>Welcome to Domain Analyzer</h1>
-    <p>Enter a domain name below to analyze it:</p>
-    <form id="domainForm">
-        <label for="domainInput">Enter Domain:</label>
-        <input type="text" id="domainInput" name="domainInput" required>
-        <button type="submit">Analyze</button>
-    </form>
-    <div id="output"></div>
-    <div id="status">Status: Waiting for input...</div>
+
+    <nav class="navbar">
+        <div class="logo">LOGO</div>
+        <div class="right">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#working">Working</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="signup">Sign up</button>
+                <button class="login">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="formm">
+        <h1>Domain <span>Analyzer</span></h1>
+        <p>Enter a domain name below to analyze it:</p>
+        <form id="domainForm">
+            <div class="input-group">
+                <input type="text" id="domainInput" name="domainInput" placeholder="Enter Domain Name" required>
+                <button type="submit">Analyze</button>
+            </div>
+        </form>    
+        <div class="note">Note: Enter a proper domain name</div>
+        <div id="output"></div>
+        <div id="status">Status: Waiting for input...</div>
+    </div>
+
+    <footer class="footer bg-purple text-white">
+        <div class="container">
+          <div class="footer-section logo-section">
+            <h1 class="logo-title">LOGO</h1>
+            <p class="contact-info">domainmail@gmail.com</p>
+            <p class="contact-info">+91 9876543210</p>
+          </div>
+          <div class="footer-section links-section">
+            <h1 class="section-title">Services</h1>
+            <a href="#" class="footer-link">Home</a>
+            <a href="#" class="footer-link">About</a>
+            <a href="#" class="footer-link">Working</a>
+          </div>
+          <div class="footer-section links-section">
+            <h1 class="section-title">Support</h1>
+            <a href="#" class="footer-link">Terms & Conditions</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Disclaimer</a>
+          </div>
+          <div class="footer-section globe-section">
+            <img src="footer.png" alt="domain globe" class="globe-image" />
+          </div>
+        </div>
+      </footer>
+      <div class="copyright">
+        <p class="footer-text">© 2024 Domain Analyzer. All Rights Reserved.</p>
+      </div>
 
     <!-- Include Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
